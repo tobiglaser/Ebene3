@@ -49,7 +49,7 @@ public class Mover : MonoBehaviour
     private void releaseObject()
     {
         Vector3? cursorPos = getGroundUnderCursor();
-        if (grabbedObj == null || cursorPos == null)
+        if (grabbedObj == null)
             return;
         Vector3 releasePos;
         if (isLegal(cursorPos))
@@ -64,6 +64,7 @@ public class Mover : MonoBehaviour
         grabbedObj.transform.position = releasePos;
 
         shape.GetComponent<MeshFilter>().mesh = initialMesh;
+        callReleaseFunction(grabbedObj);
         grabbedObj = null;
     }
 
@@ -92,8 +93,9 @@ public class Mover : MonoBehaviour
         {
             originalPos = grabbedObj.transform.position;
             grabbedObj.transform.Translate(LiftingOffset);
-            Mesh mesh = grabbedObj.GetComponent<MeshFilter>().mesh;
-            shape.GetComponent<MeshFilter>().mesh = mesh;
+            callLiftFunction(grabbedObj);
+          //!  Mesh mesh = grabbedObj.GetComponent<MeshFilter>().mesh;
+          //!  shape.GetComponent<MeshFilter>().mesh = mesh;
         }
     }
 
@@ -135,4 +137,52 @@ public class Mover : MonoBehaviour
         }
         return null;
     }
+
+
+
+    private void callLiftFunction(GameObject obj)
+    {
+        Train t = obj.GetComponent<Train>();
+        if (t)
+        {
+            t.OnLift();
+            return;
+        }
+        Car ca = obj.GetComponent<Car>();
+        if (ca)
+        {
+            ca.OnLift();
+        }
+        Canoe cu = obj.GetComponent<Canoe>();
+        if (cu)
+        {
+            cu.OnLift();
+        }
+        return;
+    }
+
+    private void callReleaseFunction(GameObject obj)
+    {
+        Train t = obj.GetComponent<Train>();
+        if (t)
+        {
+            t.OnRelease();
+            return;
+        }
+        Car ca = obj.GetComponent<Car>();
+        if (ca)
+        {
+            ca.OnRelease();
+        }
+        Canoe cu = obj.GetComponent<Canoe>();
+        if (cu)
+        {
+            cu.OnRelease();
+        }
+        return;
+    }
+
+
+
+
 }
