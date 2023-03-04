@@ -5,17 +5,17 @@ using UnityEngine.UIElements;
 
 public class Mover : MonoBehaviour
 {
-
+    [SerializeField] private GameObject HollowTrain;
+    [SerializeField] private GameObject HollowCar;
+    [SerializeField] private GameObject HollowCanoe;
     [SerializeField] private GameObject shape;
     [SerializeField] private Vector3 LiftingOffset = Vector3.up;
     private GameObject grabbedObj = null;
     Vector3 originalPos;
-    private Mesh initialMesh;
 
     // Start is called before the first frame update
     void Start()
     {
-        initialMesh = shape.GetComponent<MeshFilter>().mesh;
     }
 
     // Update is called once per frame
@@ -63,7 +63,7 @@ public class Mover : MonoBehaviour
 
         grabbedObj.transform.position = releasePos;
 
-        shape.GetComponent<MeshFilter>().mesh = initialMesh;
+        shape = null;
         callReleaseFunction(grabbedObj);
         grabbedObj = null;
     }
@@ -94,8 +94,7 @@ public class Mover : MonoBehaviour
             originalPos = grabbedObj.transform.position;
             grabbedObj.transform.Translate(LiftingOffset);
             callLiftFunction(grabbedObj);
-          //!  Mesh mesh = grabbedObj.GetComponent<MeshFilter>().mesh;
-          //!  shape.GetComponent<MeshFilter>().mesh = mesh;
+            shape = getHollowObject(grabbedObj);
         }
     }
 
@@ -182,7 +181,42 @@ public class Mover : MonoBehaviour
         return;
     }
 
+    private string getVehicleName(GameObject obj)
+    {
+        Train t = obj.GetComponent<Train>();
+        if (t)
+            return "Train";
+        Car ca = obj.GetComponent<Car>();
+        if (ca)
+            return "Car";
 
+        Canoe cu = obj.GetComponent<Canoe>();
+        if (cu)
+            return "Canoe";
+        return "";
+    }
 
-
+    private GameObject getHollowObject(GameObject obj)
+    {
+        string name = getVehicleName(obj);
+        switch (name)
+        {
+            case "Train":
+                {
+                    return HollowTrain;
+                }
+            case "Car":
+                {
+                    return HollowCar;
+                }
+            case "Canoe":
+                {
+                    return HollowCanoe;
+                }
+            default:
+                {
+                    return null;
+                }
+        }
+    }
 }
