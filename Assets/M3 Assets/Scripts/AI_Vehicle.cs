@@ -20,6 +20,7 @@ public class AI_Vehicle : MonoBehaviour
     [SerializeField] protected Transform VehicleTransform;
     [SerializeField] protected Rigidbody VehicleBody;
     [SerializeField] protected int Speed;
+    private int StowedSpeed;
 
     [Header("Destruction")]
     [SerializeField] protected float DespawnTime;
@@ -79,5 +80,19 @@ public class AI_Vehicle : MonoBehaviour
         }
         Instantiate(Spawner.ExplosionObject, VehicleTransform.position, Quaternion.identity);
         VehicleBody.AddExplosionForce(VehicleBody.mass * 10, VehicleTransform.position, 3, VehicleBody.mass * 10, ForceMode.Impulse);
+    }
+
+
+    public void OnLift()
+    {
+        VehicleBody.useGravity = false;
+        StowedSpeed = Speed;
+        Speed = 0;
+    }
+
+    public void OnRelease()
+    {
+        VehicleBody.useGravity = true;
+        Speed = StowedSpeed;
     }
 }
