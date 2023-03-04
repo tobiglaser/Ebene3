@@ -55,7 +55,10 @@ public class AI_Vehicle : MonoBehaviour
     {
         if(CurrentState == States.Alive)
         {
-            Manager.CurrentLives -= 1;
+            if(Manager.CurrentLives > 0)
+            {
+                Manager.CurrentLives -= 1;
+            }
             CurrentState = States.Destroyed;
         }
         Instantiate(Spawner.ExplosionObject, VehicleTransform.position, Quaternion.identity);

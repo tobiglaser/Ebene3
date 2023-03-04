@@ -11,7 +11,7 @@ public class ObjectSpawner : MonoBehaviour
     [Header("SpawnPoints")]
     [SerializeField] Transform[] SpawnPoints;
     [SerializeField] int SpawnNumber;
-    [SerializeField] int SpawnNumber2;
+    //[SerializeField] int SpawnNumber2;
 
     [Header("SpawnTime")]
     [SerializeField] float TimeUntilSpawn;
@@ -21,6 +21,7 @@ public class ObjectSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //SpawnNumber2 = Random.Range(0, 6);
         TimeUntilSpawn = Random.Range(MinimalTime, MaximalTime);
     }
 
@@ -40,8 +41,8 @@ public class ObjectSpawner : MonoBehaviour
     {
 
         Instantiate(Vehicles[Random.Range(0, 3)], SpawnPoints[SpawnNumber].position, SpawnPoints[SpawnNumber].rotation);
-        SpawnNumber2 = Random.Range(0, 6);
-        Instantiate(Vehicles[Random.Range(0, 3)], SpawnPoints[SpawnNumber2].position, SpawnPoints[SpawnNumber2].rotation);
+        //SpawnNumber2 = Random.Range(0, 6);
+        //Instantiate(Vehicles[Random.Range(0, 3)], SpawnPoints[SpawnNumber2].position, SpawnPoints[SpawnNumber2].rotation);
         TimeUntilSpawn = Random.Range(MinimalTime, MaximalTime);
     }
 }
