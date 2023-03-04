@@ -8,41 +8,71 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] GameObject[] Vehicles;
     public GameObject ExplosionObject;
 
-    [Header("SpawnPoints")]
-    [SerializeField] Transform[] SpawnPoints;
-    [SerializeField] int SpawnNumber;
-    //[SerializeField] int SpawnNumber2;
+    [Header("Lanes")]
+    [SerializeField] Lane[] Lanes;
 
     [Header("SpawnTime")]
-    [SerializeField] float TimeUntilSpawn;
+    [SerializeField] float SafeZone;
     [SerializeField] float MinimalTime;
     [SerializeField] float MaximalTime;
+    private float TimeUntilSpawn;
 
     // Start is called before the first frame update
     void Start()
     {
-        //SpawnNumber2 = Random.Range(0, 6);
         TimeUntilSpawn = Random.Range(MinimalTime, MaximalTime);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        SpawnNumber = Random.Range(0, 6);
         TimeUntilSpawn -= 1 * Time.deltaTime;
-        if(TimeUntilSpawn <= 0)
+        if (TimeUntilSpawn <= 0)
         {
             SpawnVehicle();
         }
-        
+
     }
 
     void SpawnVehicle()
     {
-
-        Instantiate(Vehicles[Random.Range(0, 3)], SpawnPoints[SpawnNumber].position, SpawnPoints[SpawnNumber].rotation);
-        //SpawnNumber2 = Random.Range(0, 6);
-        //Instantiate(Vehicles[Random.Range(0, 3)], SpawnPoints[SpawnNumber2].position, SpawnPoints[SpawnNumber2].rotation);
+        Transform spawn = determineSafeSpawnPoint();
+        if (spawn != null)
+        {
+            Instantiate(Vehicles[Random.Range(0, Vehicles.Length)], spawn.position, spawn.rotation);
+        }
         TimeUntilSpawn = Random.Range(MinimalTime, MaximalTime);
+    }
+
+    Transform determineSafeSpawnPoint()
+    {
+        Transform SpawnPoint = null;
+        for (int i = 0; i < (Lanes.Length * 2); i++)
+        {
+            int laneNum = Random.Range(0, Lanes.Length);
+            int side = Random.Range(0, 2);
+            Vector3 dir;
+            Vector3 pos;
+            if (side == 0)
+            {
+                SpawnPoint = Lanes[laneNum].LeftSpawn;
+                pos = SpawnPoint.position;
+                dir = Vector3.Normalize(Lanes[laneNum].RightSpawn.position - pos);
+            }
+            else
+            {
+                SpawnPoint = Lanes[laneNum].RightSpawn;
+                pos = SpawnPoint.position;
+                dir = Vector3.Normalize(Lanes[laneNum].LeftSpawn.position - pos);
+            }
+
+            Ray ray = new Ray(pos, dir);
+            RaycastHit hit;
+            if (!Physics.Raycast(ray, out hit, SafeZone))
+            {
+                return SpawnPoint;
+            }
+        }
+        return null;
     }
 }
