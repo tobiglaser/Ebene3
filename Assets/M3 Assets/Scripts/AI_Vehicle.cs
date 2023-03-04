@@ -13,11 +13,16 @@ public class AI_Vehicle : MonoBehaviour
         Alive,
         Destroyed,
     }
+    [Header("States")]
     [SerializeField] protected States CurrentState = States.Alive;
 
+    [Header("Movement")]
     [SerializeField] protected Transform VehicleTransform;
     [SerializeField] protected Rigidbody VehicleBody;
     [SerializeField] protected int Speed;
+
+    [Header("Destruction")]
+    [SerializeField] protected float DespawnTime;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +46,7 @@ public class AI_Vehicle : MonoBehaviour
                 IsAlive();
                 break;
             case States.Destroyed:
+                IsDestroyed();
                 break;
             default:
                 break;
@@ -52,6 +58,16 @@ public class AI_Vehicle : MonoBehaviour
         VehicleTransform.Translate(Vector3.forward * Speed * Time.deltaTime);
     }
     protected void IsDestroyed()
+    {
+        DespawnTime -= 1 * Time.deltaTime;
+        if(DespawnTime <= 0)
+        {
+            Instantiate(Spawner.ExplosionObject, VehicleTransform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
+    }
+
+    protected void GetDestroyed()
     {
         if(CurrentState == States.Alive)
         {

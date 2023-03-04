@@ -8,11 +8,11 @@ public class Car : AI_Vehicle
     {
         if(collision.gameObject.name == "Train")
         {
-            IsDestroyed();
+            GetDestroyed();
         }
         if(collision.gameObject.name == "Car")
         {
-            IsDestroyed();
+            GetDestroyed();
         }
     }
 
