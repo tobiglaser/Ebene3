@@ -78,6 +78,7 @@ public class AI_Vehicle : MonoBehaviour
             }
             CurrentState = States.Destroyed;
         }
+        VehicleBody.constraints = RigidbodyConstraints.None;
         Instantiate(Spawner.ExplosionObject, VehicleTransform.position, Quaternion.identity);
         VehicleBody.AddExplosionForce(VehicleBody.mass * 10, VehicleTransform.position, 3, VehicleBody.mass * 10, ForceMode.Impulse);
     }
@@ -86,6 +87,7 @@ public class AI_Vehicle : MonoBehaviour
     public void OnLift()
     {
         VehicleBody.useGravity = false;
+        VehicleBody.constraints = RigidbodyConstraints.FreezeAll;
         StowedSpeed = Speed;
         Speed = 0;
     }
@@ -93,6 +95,7 @@ public class AI_Vehicle : MonoBehaviour
     public void OnRelease()
     {
         VehicleBody.useGravity = true;
+        VehicleBody.constraints = RigidbodyConstraints.None;
         Speed = StowedSpeed;
     }
 }
