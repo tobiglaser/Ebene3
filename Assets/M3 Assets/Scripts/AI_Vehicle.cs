@@ -21,6 +21,7 @@ public class AI_Vehicle : MonoBehaviour
     [SerializeField] protected Rigidbody VehicleBody;
     [SerializeField] protected int Speed;
     private int StowedSpeed;
+    private RigidbodyConstraints StowedConstraints;
 
     [Header("Destruction")]
     [SerializeField] protected float DespawnTime;
@@ -87,6 +88,7 @@ public class AI_Vehicle : MonoBehaviour
     public void OnLift()
     {
         VehicleBody.useGravity = false;
+        StowedConstraints = VehicleBody.constraints;
         VehicleBody.constraints = RigidbodyConstraints.FreezeAll;
         StowedSpeed = Speed;
         Speed = 0;
@@ -95,7 +97,7 @@ public class AI_Vehicle : MonoBehaviour
     public void OnRelease()
     {
         VehicleBody.useGravity = true;
-        VehicleBody.constraints = RigidbodyConstraints.None;
+        VehicleBody.constraints = StowedConstraints;
         Speed = StowedSpeed;
     }
 }
