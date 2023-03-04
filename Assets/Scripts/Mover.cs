@@ -109,6 +109,9 @@ public class Mover : MonoBehaviour
         {
             return null;
         }
+
+        Debug.Log($"Clicked: {hit.collider.tag}");
+
         if (hit.collider.CompareTag("Vehicle"))
         {
             return hit.transform.gameObject;
