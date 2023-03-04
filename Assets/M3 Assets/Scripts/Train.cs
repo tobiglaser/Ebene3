@@ -8,7 +8,7 @@ public class Train : AI_Vehicle
     {
         if(collision.gameObject.name == "Train")
         {
-            IsDestroyed();
+            GetDestroyed();
         }
     }
 

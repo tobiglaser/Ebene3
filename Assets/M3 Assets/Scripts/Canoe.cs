@@ -8,15 +8,15 @@ public class Canoe : AI_Vehicle
     {
         if(collision.gameObject.name == "Train")
         {
-            IsDestroyed();
+            GetDestroyed();
         }
         if(collision.gameObject.name == "Car")
         {
-            IsDestroyed();
+            GetDestroyed();
         }
         if (collision.gameObject.name == "Canoe")
         {
-            IsDestroyed();
+            GetDestroyed();
         }
     }
 

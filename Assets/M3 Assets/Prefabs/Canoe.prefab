@@ -153,6 +153,7 @@ MonoBehaviour:
   VehicleTransform: {fileID: 7666631913161820173}
   VehicleBody: {fileID: -6440432893922732752}
   Speed: 20
+  DespawnTime: 5
 --- !u!54 &-6440432893922732752
 Rigidbody:
   m_ObjectHideFlags: 0
