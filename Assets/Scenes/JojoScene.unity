@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 0353630907a85e84ebd3df49187d364a, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -557,6 +557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 979778102}
   - component: {fileID: 979778101}
+  - component: {fileID: 979778103}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -641,6 +642,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 9.04, y: -161.008, z: -153.046}
+--- !u!114 &979778103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979778100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1158940577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7462e9d026bfe2542a3364eeebf352a1, type: 3}
@@ -721,6 +742,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 24c26620a106eb04e8c329406b105278, type: 2}
+    - target: {fileID: -6404656059171710836, guid: 7802ca938248ce74599e86c69d534913, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 24c26620a106eb04e8c329406b105278, type: 2}
     - target: {fileID: -4493294104385054553, guid: 7802ca938248ce74599e86c69d534913, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -741,6 +766,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3fac00958ae2dc34baf7798b3ed10c6b, type: 2}
+    - target: {fileID: 2718209077267746896, guid: 7802ca938248ce74599e86c69d534913, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 24c26620a106eb04e8c329406b105278, type: 2}
     - target: {fileID: 3212484557934711749, guid: 7802ca938248ce74599e86c69d534913, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -749,6 +778,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3fac00958ae2dc34baf7798b3ed10c6b, type: 2}
+    - target: {fileID: 5165098996439756299, guid: 7802ca938248ce74599e86c69d534913, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 24c26620a106eb04e8c329406b105278, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7802ca938248ce74599e86c69d534913, type: 3}
 --- !u!1 &1291762619 stripped
