@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    ParticleSystem Effect;
+   [SerializeField] ParticleSystem Effect;
 
     // Update is called once per frame
     void Update()
