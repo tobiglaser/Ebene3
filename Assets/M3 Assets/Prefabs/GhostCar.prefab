@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostCar
       objectReference: {fileID: 0}
+    - target: {fileID: 1864846727578743323, guid: e91415ec6d9537947bcd5510b9803788, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3164546179769433408, guid: e91415ec6d9537947bcd5510b9803788, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -71,6 +75,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3581868538642455094, guid: e91415ec6d9537947bcd5510b9803788, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581868538642455094, guid: e91415ec6d9537947bcd5510b9803788, type: 3}
+      propertyPath: VehicleBody
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3680857804706238911, guid: e91415ec6d9537947bcd5510b9803788, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -87,5 +99,7 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: abb2429bf61de2a4d9d95a221bd6c45b, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5699105590603102081, guid: e91415ec6d9537947bcd5510b9803788, type: 3}
+    - {fileID: 3581868538642455094, guid: e91415ec6d9537947bcd5510b9803788, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e91415ec6d9537947bcd5510b9803788, type: 3}

@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostCanoe
       objectReference: {fileID: 0}
+    - target: {fileID: 1198249760749585511, guid: 2be15711eca9dc14dbcf332b545707cd, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1302333731456118296, guid: 2be15711eca9dc14dbcf332b545707cd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -19,6 +23,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: abb2429bf61de2a4d9d95a221bd6c45b, type: 2}
+    - target: {fileID: 2907448805091167416, guid: 2be15711eca9dc14dbcf332b545707cd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907448805091167416, guid: 2be15711eca9dc14dbcf332b545707cd, type: 3}
+      propertyPath: VehicleBody
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3643907126878566742, guid: 2be15711eca9dc14dbcf332b545707cd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -79,5 +91,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6440432893922732752, guid: 2be15711eca9dc14dbcf332b545707cd, type: 3}
+    - {fileID: 2907448805091167416, guid: 2be15711eca9dc14dbcf332b545707cd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2be15711eca9dc14dbcf332b545707cd, type: 3}

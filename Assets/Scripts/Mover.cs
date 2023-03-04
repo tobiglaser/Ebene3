@@ -8,8 +8,8 @@ public class Mover : MonoBehaviour
     [SerializeField] private GameObject HollowTrain;
     [SerializeField] private GameObject HollowCar;
     [SerializeField] private GameObject HollowCanoe;
-    [SerializeField] private GameObject shape;
     [SerializeField] private Vector3 LiftingOffset = Vector3.up;
+    private GameObject shape;
     private GameObject grabbedObj = null;
     Vector3 originalPos;
 
@@ -63,7 +63,7 @@ public class Mover : MonoBehaviour
 
         grabbedObj.transform.position = releasePos;
 
-        shape = null;
+        Destroy(shape);
         callReleaseFunction(grabbedObj);
         grabbedObj = null;
     }
@@ -94,7 +94,7 @@ public class Mover : MonoBehaviour
             originalPos = grabbedObj.transform.position;
             grabbedObj.transform.Translate(LiftingOffset);
             callLiftFunction(grabbedObj);
-            shape = getHollowObject(grabbedObj);
+            shape = Instantiate(getHollowObject(grabbedObj), grabbedObj.transform.position, grabbedObj.transform.rotation);
         }
     }
 
