@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/M3 SC3N3.unity
     guid: 31d0fb02565bbc844a39ff419fcca824
   m_configObjects: {}

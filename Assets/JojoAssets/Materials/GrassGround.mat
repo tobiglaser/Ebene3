@@ -56,6 +56,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_323540a3bfbe4b73b70bc84e0c8e34f6_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 12a6d3961d74c5a41b815fba99d28d13, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_6893b84603de43f78b78c22f57da8215_Texture_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -93,6 +105,7 @@ Material:
     m_Colors:
     - _Color: {r: 0, g: 0.4056604, b: 0.0061845668, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _scrollWater: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &903325898249972724
 MonoBehaviour:
