@@ -78,6 +78,6 @@ public class AI_Vehicle : MonoBehaviour
             CurrentState = States.Destroyed;
         }
         Instantiate(Spawner.ExplosionObject, VehicleTransform.position, Quaternion.identity);
-        VehicleBody.AddExplosionForce(VehicleBody.mass * 5, VehicleTransform.position, VehicleBody.mass * 2.5f, VehicleBody.mass * 5.5f, ForceMode.Impulse);
+        VehicleBody.AddExplosionForce(VehicleBody.mass * 10, VehicleTransform.position, 3, VehicleBody.mass * 10, ForceMode.Impulse);
     }
 }
