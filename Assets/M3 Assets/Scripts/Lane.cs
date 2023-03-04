@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Lane : MonoBehaviour
 {
-    public readonly Transform RightSpawn;
-    public readonly Transform LeftSpawn;
+    public Transform RightSpawn;
+    public Transform LeftSpawn;
 }
