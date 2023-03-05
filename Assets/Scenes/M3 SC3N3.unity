@@ -7107,7 +7107,9 @@ MonoBehaviour:
   - {fileID: 1813675013}
   - {fileID: 1813675012}
   - {fileID: 1813675011}
-  SafeZone: 40
+  numRetries: 4
+  SafeZoneTowards: 50
+  SafeZoneAway: 30
   MinimalTime: 1
   MaximalTime: 3
 --- !u!114 &1813675011
