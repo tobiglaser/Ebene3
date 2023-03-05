@@ -12,7 +12,9 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] Lane[] Lanes;
 
     [Header("SpawnTime")]
-    [SerializeField] float SafeZone;
+    [SerializeField] int numRetries;
+    [SerializeField] float SafeZoneTowards;
+    [SerializeField] float SafeZoneAway;
     [SerializeField] float MinimalTime;
     [SerializeField] float MaximalTime;
     private float TimeUntilSpawn;
@@ -47,7 +49,7 @@ public class ObjectSpawner : MonoBehaviour
     Transform determineSafeSpawnPoint()
     {
         Transform SpawnPoint = null;
-        for (int i = 0; i < (Lanes.Length * 2); i++)
+        for (int i = 0; i < numRetries; i++)
         {
             int laneNum = Random.Range(0, Lanes.Length);
             int side = Random.Range(0, 2);
@@ -68,9 +70,25 @@ public class ObjectSpawner : MonoBehaviour
 
             Ray ray = new Ray(pos, dir);
             RaycastHit hit;
-            if (!Physics.Raycast(ray, out hit, SafeZone))
+            bool doesCollide = Physics.Raycast(ray, out hit, SafeZoneTowards);
+            if (!doesCollide)
             {
                 return SpawnPoint;
+            }
+            else
+            {
+                if (hit.transform.rotation.y * dir.x >= 0)
+                {
+                    //gleiche Rightung -> Away -> weniger Abstand -> nochmal Raycasten
+                    if(!Physics.Raycast(ray, out hit, SafeZoneAway))
+                    {
+                        return SpawnPoint;
+                    }
+                }
+                else
+                {
+                    // negativ -> Towards -> größerer Abstand -> kein SpawnPunkt -> nochmal
+                }
             }
         }
         return null;

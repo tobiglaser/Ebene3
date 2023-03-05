@@ -161,11 +161,13 @@ public class Mover : MonoBehaviour
         if (ca)
         {
             ca.OnLift();
+            return;
         }
         Canoe cu = obj.GetComponent<Canoe>();
         if (cu)
         {
             cu.OnLift();
+            return;
         }
         return;
     }
