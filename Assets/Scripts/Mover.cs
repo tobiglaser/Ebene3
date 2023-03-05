@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class Mover : MonoBehaviour
 {
+    [SerializeField] private GameManager Manager;
     [SerializeField] private GameObject HollowTrain;
     [SerializeField] private GameObject HollowCar;
     [SerializeField] private GameObject HollowCanoe;
@@ -16,10 +17,19 @@ public class Mover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Manager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        if(Manager.CurrentState == GameManager.GameStates.Playing)
+        {
+            moverFunctions();
+        }
+    }
+
+    private void moverFunctions()
     {
         if (Input.GetMouseButtonDown(0))
         {

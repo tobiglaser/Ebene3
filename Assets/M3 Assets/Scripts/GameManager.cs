@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    enum GameStates
+    public enum GameStates
     {
         Playing,
         Pausing,
         Ending,
     }
-    [SerializeField] GameStates CurrentState = GameStates.Playing;
+    [SerializeField] public GameStates CurrentState = GameStates.Playing;
 
     [Header("Panels")]
     [SerializeField] GameObject IngamePanel;
