@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 51558153480303263}
   - component: {fileID: 1071874508067732954}
   m_Layer: 0
-  m_Name: Smoke of Train
+  m_Name: Smoke of Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
